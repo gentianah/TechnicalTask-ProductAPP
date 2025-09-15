@@ -1,0 +1,48 @@
+<div *ngIf="loading" class="loading-spinner">
+  <mat-spinner diameter="50"></mat-spinner>
+  <p>Loading metrics...</p>
+</div>
+
+<div class="custom-chart">
+  <mat-card *ngIf="!loading" class="custom-mat">
+    <mat-card-header>
+      <mat-card-title>Metrics Dashboard</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <div style="height: 400px; width: 100%;">
+        <canvas baseChart
+          [data]="lineChartData"
+          [options]="lineChartOptions"
+          [type]="'line'">
+        </canvas>
+      </div>
+      
+    </mat-card-content>
+  </mat-card>
+  <mat-card *ngIf="!loading" class="custom-mat">
+    <mat-card-header>
+      <mat-card-title>Metrics Table</mat-card-title>
+    </mat-card-header>
+  
+    <mat-card-content>
+      <table mat-table [dataSource]="dataSource">
+        <ng-container matColumnDef="metric">
+          <th mat-header-cell *matHeaderCellDef> Metric </th>
+          <td mat-cell *matCellDef="let element"> {{element.metric}} </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="value">
+          <th mat-header-cell *matHeaderCellDef> Value </th>
+          <td mat-cell *matCellDef="let element"> {{element.value}} </td>
+        </ng-container>
+  
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </mat-card-content>
+  </mat-card>
+</div>
+
+<!-- Table displaying metrics -->
+

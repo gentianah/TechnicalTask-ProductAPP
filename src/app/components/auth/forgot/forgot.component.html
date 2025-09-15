@@ -1,0 +1,29 @@
+<div class="forgot">
+  <div class="forgot-container">
+    <!-- Left Panel with Lottie Animation -->
+    <div class="left-panel">
+      <app-lottie></app-lottie>
+    </div>
+    <!-- Right Panel with Login Form -->
+    <div class="right-panel">
+      <div class="login-box">
+        <section class="mat-typography">
+          <h1>{{'ForgotPassword' | translate}}</h1>
+          <p>{{'EnterNameForgotPass' | translate}}</p>
+        </section>
+        <form>
+          <div class="input-group">
+            <label for="username">{{'Username' | translate}}</label>
+            <input type="text" id="username" placeholder="Enter your username" />
+          </div>
+          <div class="actions">
+            <a routerLink='/login'>{{'HaveAccount' | translate}}</a>
+            <a routerLink='/register'>{{'DontHaveAccount' | translate}}</a>
+          </div>
+          <button mat-raised-button color="accent" routerLink="/register">{{'Verify' | translate}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+</div>

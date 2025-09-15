@@ -1,0 +1,82 @@
+
+<div class="products-container mt-5">
+  <h2>{{'ProductsList' | translate}}</h2>
+    <button mat-raised-button mat-button  *ngIf="userRole === 'Admin'" (click)="openAddProductDialog()">{{'AddProduct' | translate}}</button>
+  
+    <div class="filter-form">
+      <form [formGroup]="filterForm">
+        <mat-form-field appearance="fill" class="custom-input">
+          <mat-label>{{ 'Name' | translate }}</mat-label>
+          <input matInput formControlName="name" placeholder="Filter by name">
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill" class="custom-input">
+          <mat-label>{{ 'Status' | translate }}</mat-label>
+          <mat-select formControlName="status">
+            <mat-option value="Active">Active</mat-option>
+            <mat-option value="Inactive">Inactive</mat-option>
+          </mat-select>
+        </mat-form-field>
+    
+        <mat-form-field appearance="fill">
+          <mat-label>{{ 'Category' | translate }}</mat-label>
+          <mat-select formControlName="categoryId" required>
+              <mat-option *ngFor="let item of categories$ | async" [value]="item.id">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        
+        <button mat-button type="button" (click)="clearFilters()">{{ 'ClearFilter' | translate }}</button>
+  
+      </form>
+    </div>
+  
+    <mat-table [dataSource]="products$" matSort (matSortChange)="onSortChange($event)">
+      <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Name' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.name}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="price">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Price' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.price}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="quantity">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Quantity' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.quantity}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="status">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Status' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.status}}</mat-cell>
+      </ng-container>
+  
+      <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>{{'Category' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">{{element.categoryName}}</mat-cell>
+      </ng-container>
+    
+      <ng-container matColumnDef="actions">
+        
+        <mat-header-cell  *matHeaderCellDef>{{'Actions' | translate}}</mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button *ngIf="userRole === 'Admin'" mat-icon-button (click)="editProduct(element)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button *ngIf="userRole === 'Admin'" mat-icon-button (click)="deleteProduct(element)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </mat-cell>
+      </ng-container>
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+    <mat-paginator  
+      [length]="totalCount"
+      [pageSize]="pageSize"
+      [pageIndex]="page - 1"
+      (page)="onPageChange($event.pageIndex + 1)">
+    </mat-paginator>
+  </div>
+  
+  

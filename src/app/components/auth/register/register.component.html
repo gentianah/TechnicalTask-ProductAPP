@@ -1,0 +1,54 @@
+<div class="register">
+  <div class="register-container">
+    <div class="left-panel">
+      <app-lottie></app-lottie>
+    </div>
+    <div class="right-panel">
+      <div class="login-box">
+        <h1>{{'SignUp' | translate}}</h1>
+        <form [formGroup]="register" (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <label for="name">{{'Name' | translate}}</label>
+            <input formControlName="name" type="text" id="name" placeholder="Enter your name" />
+            <div class="error" *ngIf="name?.invalid && name?.touched">
+              <span *ngIf="name?.errors?.['required']">{{'FieldRequired' | translate}}</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="surname">{{'Surname' | translate}}</label>
+            <input formControlName="surname" type="text" id="surname" placeholder="Enter your surname" />
+            <div class="error" *ngIf="surname?.invalid && name?.touched">
+              <span *ngIf="surname?.errors?.['required']">{{'FieldRequired' | translate}}</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="username">{{'Username' | translate}}</label>
+            <input formControlName="username" type="text" id="username" placeholder="Enter your username" />
+            <div class="error" *ngIf="username?.invalid && username?.touched">
+              <span *ngIf="username?.errors?.['required']">{{'FieldRequired' | translate}}</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="email">Email</label>
+            <input formControlName="email"  type="email" id="email" placeholder="Enter your email" />
+            <div class="error" *ngIf="email?.invalid && email?.touched">
+              <span *ngIf="email?.errors?.['required']">{{'FieldRequired'| translate}}</span>
+            </div>
+          </div>
+          <div class="input-group">
+            <label for="password">{{'Password' | translate}}</label>
+            <input type="password"  formControlName="password"  id="password" placeholder="Enter your password" />
+            <div class="error" *ngIf="password?.invalid && password?.touched">
+              <span *ngIf="password?.errors?.['required']">{{'FieldRequired' | translate}}</span>
+            </div>
+          </div>
+          <div class="actions">
+            <a routerLink='/login'>{{'HaveAccount' | translate}}</a>
+            <a routerLink='/forgotpassword'>{{'ForgotPassword' | translate}}</a>
+          </div>
+          <button mat-raised-button color="accent" type="submit" [disabled]="isSubmitting || register.invalid" >{{'SignUp' | translate}}</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

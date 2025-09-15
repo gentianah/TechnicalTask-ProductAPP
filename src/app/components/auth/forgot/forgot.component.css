@@ -1,0 +1,83 @@
+.forgot{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+}
+.forgot-container {
+    display: flex;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+  }
+  
+  .left-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    background: #FFF8F8;
+    justify-content: center;
+  }
+  
+  .lottie-animation {
+    width: 80%;
+    max-width: 500px;
+  }
+  
+  .right-panel {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .login-box {
+    width: 80%;
+    max-width: 400px;
+    padding: 2rem;
+  }
+  
+  h2 {
+    margin-bottom: 20px;
+  }
+  
+  .input-group {
+    margin-bottom: 15px;
+    text-align: left;
+  }
+  
+  .input-group label {
+    display: block;
+    font-weight:500;
+    margin-bottom: 5px;
+  }
+  
+  .input-group input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #ba005c;
+    font-size: 16px;
+  }
+
+  .actions {
+    display: flex;
+    margin: 8% 0;
+    justify-content: space-between;
+    font-size: 0.8rem;
+}
+.actions a{
+    color: #ba005c;
+    font-weight: 400;
+    text-decoration: underline;
+}
+.mat-typography p{
+    font-size: 0.9rem;
+    color: #ba005c;
+}
+h1 {
+  font-size: 2rem; /* Adjust font size as needed */
+  font-weight: bold; /* Make the header bold */
+  color: #ba005c; /* Color to match your theme */
+  margin-bottom: 20px;
+}

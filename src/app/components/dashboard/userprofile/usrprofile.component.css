@@ -1,0 +1,24 @@
+.user-container{
+    display: grid;
+    align-items: center;
+    justify-content: center;
+    align-content: end;
+    height: 50vh;
+}
+.profile-form{
+  
+    width: 100%;
+   
+}
+
+.custom-btn{
+    width: 100%;
+    margin: 1%;
+}
+.field{
+    width: 100% !important;
+}
+.container{
+    width: auto;
+    padding: 2%; 
+}

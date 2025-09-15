@@ -1,0 +1,43 @@
+<div class="login">
+  <div class="login-container">
+    <div class="left-panel">
+      <app-lottie></app-lottie>
+    </div>
+    <div class="right-panel">
+      <div class="login-box">
+        <section class="mat-typography">
+          <h1>{{'SignIn' | translate}}</h1>
+        </section>
+
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <div class="input-group">
+            <label for="username">{{'Username' | translate}}</label>
+            <input type="username" id="username" formControlName="username" placeholder="Enter your name" />
+            <div class="error" *ngIf="username?.invalid && username?.touched">
+              <span *ngIf="username?.errors?.['required']">{{'FieldRequired'| translate}}</span>
+            </div>
+          </div>
+
+          <div class="input-group">
+            <label for="password">{{'Password' | translate}}</label>
+            <input type="password" id="password" formControlName="password" placeholder="Enter your password" />
+            <div class="error" *ngIf="password?.invalid && password?.touched">
+              <span *ngIf="password?.errors?.['required']">{{'FieldRequired'| translate}}</span>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a routerLink='/register'>{{'DontHaveAccount' | translate}}</a>
+            <a routerLink='/forgotpassword'>{{'ForgotPassword' | translate}}</a>
+          </div>
+          <div class="error" *ngIf="errorMessage">{{ errorMessage }}</div>
+          <button mat-raised-button color="accent" type="submit" [disabled]="isSubmitting || loginForm.invalid">
+            {{ isSubmitting ? ('SigningIn' | translate) : ('SignIn' | translate) }}
+          </button>
+
+          
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

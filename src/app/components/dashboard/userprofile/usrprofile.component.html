@@ -1,0 +1,36 @@
+<div class="mat-elevation-z8 user-container">
+  <div class="mat-elevation-z8 container">
+    <h2>Account Information</h2>
+    <form class="profile-form" [formGroup]="userProfileForm">
+        <div>
+          <mat-form-field class="field">
+            <input matInput formControlName="fullName" placeholder="Full Name" [attr.disabled]="isFormDisabled ? true : null">
+          </mat-form-field>
+        </div>
+        <!-- <div>
+          <mat-form-field class="field">
+            <input matInput formControlName="username" placeholder="username" [attr.disabled]="isFormDisabled ? true : null">
+          </mat-form-field>
+        </div> -->
+        <div>
+          <mat-form-field class="field">
+            <input matInput formControlName="email" placeholder="Email" [attr.disabled]="isFormDisabled ? true : null">
+          </mat-form-field>
+        </div>
+
+        <div class="field">
+          <button class="custom-btn" mat-raised-button mat-button (click)="onChangeAccountInfo()" type="button">
+            Change Information
+          </button>
+          <button class="custom-btn" mat-raised-button mat-button [disabled]="isFormDisabled" (click)="onSubmit()" type="submit">
+            Save Changes
+          </button>
+        </div>
+      
+        <div>
+         
+        </div>
+      </form>
+      
+</div>
+</div>

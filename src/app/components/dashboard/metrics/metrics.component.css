@@ -1,0 +1,40 @@
+/* .metrics-dashboard {
+    text-align: center;
+    padding: 20px;
+  }
+  
+  .loading-spinner {
+    font-size: 1.2em;
+    color: #999;
+  }
+  
+  .error-message {
+    color: red;
+    font-size: 1.2em;
+  }
+  
+  .metrics {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+  }
+  
+  .metric {
+    background-color: #f3f3f3;
+    padding: 20px;
+    border-radius: 8px;
+    width: 150px;
+  }
+  
+  .metric h2 {
+    margin-bottom: 10px;
+  }
+  
+  .metric p {
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+   */
+   .custom.chart{
+    display: flex !important;
+   }

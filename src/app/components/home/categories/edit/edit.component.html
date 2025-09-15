@@ -1,0 +1,17 @@
+<h2 mat-dialog-title>{{'EditExisting' | translate}}</h2>
+
+<mat-dialog-content>
+  <form [formGroup]="categoryForm" (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>{{'Name' | translate}}</mat-label>
+      <input matInput formControlName="name" required />
+      <mat-error *ngIf="categoryForm.get('name')?.hasError('required')">{{'FieldRequired' | translate}}</mat-error>
+    </mat-form-field>
+
+  </form>
+</mat-dialog-content>
+
+<mat-dialog-actions>
+  <button mat-button (click)="dialogRef.close()">{{'Cancel' | translate}}</button>
+  <button mat-raised-button color="primary" [disabled]="categoryForm.invalid" (click)="onSubmit()" type="submit">{{'Update' | translate}}</button>
+</mat-dialog-actions>

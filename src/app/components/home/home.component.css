@@ -1,0 +1,15 @@
+.first-container{
+    display: flex;
+    height: 45vh;
+    background: #FFF8F8;
+    padding: 0 !important;
+    margin: 0 !important;
+    justify-content: center;
+    align-items: center;
+}
+.first-container p{
+    color: #ba005c; 
+    font-size: 5rem;
+    margin: 0 !important;
+    padding: 0 !important;
+}
